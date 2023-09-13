@@ -1,0 +1,135 @@
+\documentclass{article}
+
+
+% if you need to pass options to natbib, use, e.g.:
+%     \PassOptionsToPackage{numbers, compress}{natbib}
+% before loading neurips_2023
+
+
+% ready for submission
+% \usepackage{neurips_2023}
+
+
+% to compile a preprint version, e.g., for submission to arXiv, add add the
+% [preprint] option:
+\usepackage[preprint,nonatbib]{neurips_2023}
+
+
+% to compile a camera-ready version, add the [final] option, e.g.:
+% \usepackage[final]{neurips_2023}
+
+
+% to avoid loading the natbib package, add option nonatbib:
+% \usepackage[nonatbib]{neurips_2023}
+
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{xcolor}         % colors
+\usepackage[
+    backend=biber,
+    style=authoryear-comp,
+    ]{biblatex}
+\addbibresource{citations.bib}
+
+
+\title{PhilBench: Measuring Value Learning from Text}
+
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to LaTeX to determine where to break the
+% lines. Using \AND forces a line break at that point. So, if LaTeX puts 3 of 4
+% authors names on the first line, and the last on the second line, try using
+% \AND instead of \And before the third author name.
+
+
+\author{%
+    Gaurav Sett \\ % \thanks{Use footnote for providing further information about author (webpage, alternative address)---\emph{not} for acknowledging funding agencies.} \\
+    % College of Computing\\
+    Georgia Institute of Technology\\
+    % Atlanta, GA 30332 \\
+    \texttt{gauravsett@gatech.edu} \\
+  % examples of more authors
+  % \And
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+  % \AND
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+  % \And
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+  % \And
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+}
+
+
+\begin{document}
+
+
+\maketitle
+
+
+\begin{abstract}
+    Current alignment efforts are largely focused on getting AI to follow common norms. 
+    Strong alignment requires AI to confront complex and controversial topics. 
+    Typical alignment approaches are incapable of representing a distribution of beliefs. 
+    To achieve a democratic approach to alignment, we must develop new methods. 
+    Collecting democratic inputs from humans at scale is expensive and difficult. 
+    However, humans have already provided significant information about their values through writing. 
+    We can formulate language in many ways, so the utterances we choose reveals what we think is true, informative, relevant, and coherent. 
+    We propose PhilBench, a benchmark for value learning from text. We provide a dataset of text from philosophy papers. 
+    We repurpose the PhilPapers Survey, measuring the views of a sample of authors of these texts, as a test for AI. 
+    We encourage researchers to develop methods allowing AI to learn the values of these philosophers from their papers.
+\end{abstract}
+
+
+\section{Introduction}
+
+Motivation...
+
+\paragraph*{Insights from pragmatics.} \parencite{grice1975logic}
+
+\paragraph*{Benchmark overview.}
+
+
+\section{Data}
+
+\subsection{Philosophy Papers}
+
+\subsection{PhilPapers Survey}
+
+
+\section{Experiments}
+
+
+\section{Discussion}
+
+
+\section*{Social Impacts Statement}
+Potential broader impact of their work, including its ethical aspects and future societal consequences.
+
+\section*{References}
+\printbibliography[heading=none]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
