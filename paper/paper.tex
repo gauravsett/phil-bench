@@ -8,15 +8,16 @@
 
 % ready for submission
 % \usepackage{neurips_2023}
+% \usepackage[nonatbib]{neurips_2023}
 
 
 % to compile a preprint version, e.g., for submission to arXiv, add add the
 % [preprint] option:
-\usepackage[preprint,nonatbib]{neurips_2023}
+\usepackage[nonatbib,preprint]{neurips_2023}
 
 
 % to compile a camera-ready version, add the [final] option, e.g.:
-% \usepackage[final]{neurips_2023}
+% \usepackage[nonatbib,final]{neurips_2023}
 
 
 % to avoid loading the natbib package, add option nonatbib:
@@ -38,6 +39,8 @@
     ]{biblatex}
 \addbibresource{citations.bib}
 
+\newcommand{\pcite}[1]{\parencite{#1}}
+
 
 \title{PhilBench: Measuring Value Learning from Text}
 
@@ -52,35 +55,13 @@
 
 
 \author{%
-    Gaurav Sett \\ % \thanks{Use footnote for providing further information about author (webpage, alternative address)---\emph{not} for acknowledging funding agencies.} \\
-    % College of Computing\\
+    Gaurav Sett \\ 
+    College of Computing\\
     Georgia Institute of Technology\\
     % Atlanta, GA 30332 \\
     \texttt{gauravsett@gatech.edu} \\
-  % examples of more authors
-  % \And
-  % Coauthor \\
-  % Affiliation \\
-  % Address \\
-  % \texttt{email} \\
-  % \AND
-  % Coauthor \\
-  % Affiliation \\
-  % Address \\
-  % \texttt{email} \\
-  % \And
-  % Coauthor \\
-  % Affiliation \\
-  % Address \\
-  % \texttt{email} \\
-  % \And
-  % Coauthor \\
-  % Affiliation \\
-  % Address \\
-  % \texttt{email} \\
-}
-
-
+    }
+    
 \begin{document}
 
 
@@ -97,39 +78,144 @@
     We can formulate language in many ways, so the utterances we choose reveals what we think is true, informative, relevant, and coherent. 
     We propose PhilBench, a benchmark for value learning from text. We provide a dataset of text from philosophy papers. 
     We repurpose the PhilPapers Survey, measuring the views of a sample of authors of these texts, as a test for AI. 
-    We encourage researchers to develop methods allowing AI to learn the values of these philosophers from their papers.
+    We encourage researchers to develop methods allowing AI to learn the values of these philosophers from their papers \footnote{Repository available at \url{https://github.com/gauravsett/phil-bench}}.
 \end{abstract}
 
 
 \section{Introduction}
 
-Motivation...
+Deep learning has enabled significant advances in AI.
+Several factors have contributed including data and compute.
 
-\paragraph*{Insights from pragmatics.} \parencite{grice1975logic}
+Large language models have been at the forefront.
+We discovered a scalable architecture and a simple yet effective objective.
+LLMs now define the state of the art in most language tasks.
 
-\paragraph*{Benchmark overview.}
+However, significant effort is required to ensure capabilites are aligned with human goals.
+A core challenge is reward specification.
 
+Grice's cooperative principle \pcite{grice1975logic} gives a framework for language model alignment.
+Grice gives four maxims: quality, quantity, relation, and manner.
+
+Early progress has come in the form of value learning.
+In the chatbot domain, we have instruction tuning.
+Furthermore, we have RL methods. RL methods go beyond chatbots.
+
+Maxims don't work in all contexts \pcite{kasirzadeh2023conversation}.
+While they may take us far for objective empirical domains, they are insufficient for subjective normative domains.
+
+Hence, we new models that don't assume a single set of values.
+We also need data that reflects a distribution of values.
+
+Philosophy provides a useful source of data.
+Philosphers have written extensively about their views.
+Their papers are direct in their expression of values.
+We can formulate language in many ways, so the utterances we choose reveals what we think is true, informative, relevant, and coherent. \pcite{grice1975logic}
+
+
+
+% With modern compute, AI systems are capable of leveraging large amounts of data to solve complex problems.
+% Large language models have best demonstrated this ability.
+% Taking advantage of the abundance of text available on the internet, these models have learned to perform a variety of tasks from a simple self-supervised objective.
+
+
+% While AI has achieved impressive performance in tasks like translation, summarization, and conversation, an important challenge persists in the alignment problem. This refers to the difficulty in ensuring that AI systems behave according to our intentions, especially when those intentions are complex or subtle. Even with vast quantities of data, it is not guaranteed that the AI will always interpret or act in ways humans find intuitive or desirable. 
+
+% This is the alignment problem.
+% Not only is this important for language systems, but an open problem in machine learning.
+% We need solutions that span model types, contexts, and modalities to ensure control.
+
+% Fine-tuning is a popular approach to alignment.
+% Instruction tuning \pcite{ouyang2022training}.
+% RL methods \pcite{christiano2017deep}.
+% Current alignment efforts are largely focused on getting AI to follow common norms.
+% Models are bad. Models as noise.
+% Don't have good data either. Collecting democratic inputs from humans at scale is expensive and difficult. 
+
+% To achieve a democratic approach to alignment, we must develop new methods. 
+% However, humans have already provided significant information about their values through writing. 
+
+% \subsection{Pragmatics} 
+
+% We can formulate language in many ways, so the utterances we choose reveals what we think is true, informative, relevant, and coherent. \pcite{grice1975logic}
+
+\subsection{Benchmark Overview}
+
+We propose PhilBench, a benchmark for value learning from text. We provide a dataset of text from philosophy papers. 
+We repurpose the PhilPapers Survey, measuring the views of a sample of authors of these texts, as a test for AI. 
+We encourage researchers to develop methods allowing AI to learn the values of these philosophers from their papers.
 
 \section{Data}
 
+\subsection{Philosopher Survey}
+
+The 2020 PhilPapers Survey \pcite{bourget2023philosophers}, which surveyed the philosophical views of 1785 English-speaking philosophers from around the world on 100 philosophical questions.
+
+Common ones, such as "Free will: compatibilism, no free will, or libertarianism?" "God: atheism or theism?"
+
+Ones that require you to know terms: "Abstract objects: Platonism or nominalism?"
+
+Ones that require you to know history: "Wittgenstein (which do you prefer?): early or late?"
+
+(1) From Australia, Canada, Ireland, New Zealand, the UK, and the US (6112 philosophers): all regular faculty members (tenure-track or permanent) in BA-granting philosophy departments with four or more members (according to the PhilPeople database). (2). From all other countries (1573 philosophers): English-publishing philosophers in BA-granting philosophy departments with four or more English-publishing faculty members.
+
+Included distribution. Also strongest correlations with other questions.
+
+
 \subsection{Philosophy Papers}
 
-\subsection{PhilPapers Survey}
+We collect philosophy papers from the Semantic Scholar Academic Graph API \pcite{kinney2023semantic}.
+
+For each question topic in the survey, we use the keyword endpoint to retrieve a list of relevant papers. 
+
+We also retrieved the references and citations for thse papers. 
+This can be used to recreate the citation network for the papers.
 
 
 \section{Experiments}
 
+\subsection{Baselines}
+
+Random guessing.
+
+Accuracy maximization.
+
+\subsection{OpenAI GPT Models}
+
+Babbage and Davinci.
+
+\subsection{Eleuther Pythia Models}
+
+\subsection{Supervised Fine-Tuning}
+
+Using the subset of keyword returned philosophy papers (exclusing retreived references and citations).
+Hyperperameters.
+
+
+\section{Results}
+
+Models about random.
+
+Supervised fine-tuning did not help.
+
 
 \section{Discussion}
 
+MMLU is a similar task and models perform better on it.
+Fine tuning helps on the Ethics dataset but did not help here.
+
+
+\subsection{Future Work}
+
+Cooperative principle. Grice.
+Knowledge graphs. Riedel.
+Citation networks. Eisentstein.
 
 \section*{Social Impacts Statement}
-Potential broader impact of their work, including its ethical aspects and future societal consequences.
+Alignment.
 
 \section*{References}
 \printbibliography[heading=none]
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \end{document}
