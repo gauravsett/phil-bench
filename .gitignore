@@ -4,6 +4,8 @@ src/gpt-neo-x-main/
 secret.py
 websites/
 .DS_Store
+.vscode/
+src/models/weights/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
